@@ -1,0 +1,4 @@
+<button *ngFor="let user of users" (click)="changeCurrentUser($event, user)">{{user.name}}</button>
+
+<div>{{errorMsg}} </div>
+<app-user [user]="currentUser" (notify)='onNotify($event)'></app-user>

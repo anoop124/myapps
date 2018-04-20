@@ -1,0 +1,21 @@
+<form [formGroup]="userForm">
+
+  <div>
+    <label for="name">Name</label>
+    <input formControlName="name" type="text"  id="name" required >
+  </div>
+
+  <div>
+    <label for="email">E-mail</label>
+    <input formControlName="email" type="email" id="email">
+  </div>
+
+  <div formGroupName="address">
+    <label for="city">City</label>
+    <input formControlName="city" type="text" (change)="validateCity(city.value)" id="city" >
+      <div *ngIf = "city.touched && city.invalid">
+             City Should not be empty
+      </div>
+  </div>
+  <button [disabled]="!userForm.valid" (click)="validateCity(city.value)">Save</button>
+</form>
